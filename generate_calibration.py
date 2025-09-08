@@ -25,10 +25,10 @@ dist_X = truncnorm(a_param, b_param, loc=X_MEAN, scale=X_STD_DEV)
 
 def expected_rtp(k):
     """Вычисляет ожидаемый RTP для заданного k."""
-    def integrand(bet):
-        # bet - это ставка, распределенная как dist_X
-        p_survive = 1 - ((bet - 1) / (X_MAX - 1))**(1/k)
-        return bet * p_survive * dist_X.pdf(bet)
+    def integrand(x):
+        # x - это числа, распределенные как dist_X
+        p_survive = 1 - ((x - 1) / (X_MAX - 1))**(1/k)
+        return x * p_survive * dist_X.pdf(x)
     integral, _ = quad(integrand, X_MIN, X_MAX, limit=500)
     return integral / dist_X.mean()
 
