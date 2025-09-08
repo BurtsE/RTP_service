@@ -105,7 +105,7 @@ func TestGeneration(t *testing.T) {
 
 			estimatedRtp := sum1 / sum0 / mean
 
-			if math.Abs(estimatedRtp-tt.rtp) > precision {
+			if math.Abs(estimatedRtp-tt.rtp) > Precision {
 				t.Logf("sum is not equal to rtp, want: %v, got: %v", tt.rtp, estimatedRtp)
 				t.Fail()
 			}
