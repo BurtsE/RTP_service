@@ -1,6 +1,7 @@
 package server
 
 import (
+	"context"
 	"fmt"
 	"multiplicator/internal/config"
 	"net/http"
@@ -30,4 +31,8 @@ func NewHTTPServer(cfg *config.Config, service Service) *HTTPServer {
 
 func (s *HTTPServer) Start() error {
 	return s.srv.ListenAndServe()
+}
+
+func (s *HTTPServer) Stop(ctx context.Context) error {
+	return s.srv.Shutdown(ctx)
 }
