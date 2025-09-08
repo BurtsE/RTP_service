@@ -72,6 +72,11 @@ func TestGeneration(t *testing.T) {
 			sequence: generateNormalDistributedSequence(),
 			rtp:      0.98,
 		},
+		{
+			name:     "test #10",
+			sequence: generateNormalDistributedSequence(),
+			rtp:      1,
+		},
 	}
 	calibration := config.NewCalibration("../../config/calibration.json")
 	for _, tt := range tests {

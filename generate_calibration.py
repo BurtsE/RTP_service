@@ -40,7 +40,7 @@ def find_k(rtp_target):
         return bisect(f, K_MIN, K_MAX)
     except ValueError:
         # Возвращаем граничное значение, если rtp_target вне диапазона
-        return K_MIN if f(K_MIN) > 0 else K_MAX
+        return K_MIN # if f(K_MIN) > 0 else K_MAX
 
 # Построим таблицу rtp -> k
 rtps = np.linspace(0.01, 1.0, 200)

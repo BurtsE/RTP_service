@@ -20,6 +20,7 @@ func NewService(rtp float64, calibration config.Calibration) *Service {
 		k:   k,
 	}
 }
+
 // GenerateMultiplicator генерирует мультипликаторы, смещая распределение
 func (s *Service) GenerateMultiplicator() float64 {
 	return 1 + 9999*(math.Pow(rand.Float64(), s.k))
