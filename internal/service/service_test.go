@@ -3,7 +3,6 @@ package service
 import (
 	"math"
 	"math/rand/v2"
-	"multiplicator/internal/config"
 	"testing"
 	"time"
 )
@@ -77,11 +76,15 @@ func TestGeneration(t *testing.T) {
 			sequence: generateNormalDistributedSequence(),
 			rtp:      1,
 		},
+		{
+			name:     "test #11",
+			sequence: generateDefault(5000),
+			rtp:      0.7,
+		},
 	}
-	calibration := config.NewCalibration("../../config/calibration.json")
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			service := NewService(tt.rtp, calibration)
+			service := NewService(tt.rtp)
 			transformed := make([]float64, len(tt.sequence))
 			sum1 := 0.0
 			sum0 := float64(len(tt.sequence))
@@ -137,4 +140,16 @@ func generateNormalFloat64(r *rand.Rand, mean, stdDev float64) float64 {
 	z := math.Sqrt(-2*math.Log(u1)) * math.Cos(2*math.Pi*u2)
 
 	return mean + stdDev*z
+}
+
+func generateDefault(val float64) []float64 {
+	v := uint64(time.Now().UnixNano())
+	r := rand.New(rand.NewPCG(v, v+3))
+	length := SequenceMinLength + r.Int()%3000
+	sequence := make([]float64, 0, length)
+
+	for range length {
+		sequence = append(sequence, val)
+	}
+	return sequence
 }

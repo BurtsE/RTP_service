@@ -31,8 +31,7 @@ func main() {
 
 	log.Printf("rtp values set to: %f\n", *rtp)
 
-	calibration := config.NewCalibration("./config/calibration.json")
-	servise := service.NewService(*rtp, calibration)
+	servise := service.NewService(*rtp)
 
 	config := config.NewConfig("./config/config.json")
 
