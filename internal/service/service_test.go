@@ -83,12 +83,12 @@ func TestGeneration(t *testing.T) {
 		},
 		{
 			name:     "test #12",
-			sequence: generateDefault(5000),
+			sequence: generateDefault(6000),
 			rtp:      0.5,
 		},
 		{
 			name:     "test #13",
-			sequence: generateDefault(5000),
+			sequence: generateDefault(2000),
 			rtp:      0.9,
 		},
 		{
