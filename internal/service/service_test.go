@@ -79,7 +79,22 @@ func TestGeneration(t *testing.T) {
 		{
 			name:     "test #11",
 			sequence: generateDefault(5000),
-			rtp:      0.7,
+			rtp:      0.1,
+		},
+		{
+			name:     "test #12",
+			sequence: generateDefault(5000),
+			rtp:      0.5,
+		},
+		{
+			name:     "test #13",
+			sequence: generateDefault(5000),
+			rtp:      0.9,
+		},
+		{
+			name:     "test #14",
+			sequence: generateDefault(5000),
+			rtp:      1,
 		},
 	}
 	for _, tt := range tests {
