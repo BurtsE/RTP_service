@@ -9,7 +9,6 @@ import (
 
 const (
 	Precision         = 0.02    // Точность вычисление rtp для тестов
-	MaxValue          = 10000.0 // Предел входных значений
 	SequenceMinLength = 10000
 )
 

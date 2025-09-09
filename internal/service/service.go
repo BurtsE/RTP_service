@@ -4,6 +4,11 @@ import (
 	"math/rand"
 )
 
+const (
+	MaxValue = 10000.0
+	MinValue = 1.0
+)
+
 type Service struct {
 	rtp float64
 	k   float64
@@ -20,8 +25,8 @@ func NewService(rtp float64) *Service {
 func (s *Service) GenerateMultiplicator() float64 {
 	u := rand.Float64()
 	if u < s.rtp {
-		return 10000
+		return MaxValue
 	}
 
-	return 1
+	return MinValue
 }
