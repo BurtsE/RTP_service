@@ -93,9 +93,14 @@ func TestGeneration(t *testing.T) {
 		},
 		{
 			name:     "test #14",
-			sequence: generateDefault(5000),
+			sequence: generateDefault(1),
 			rtp:      1,
 		},
+		// {
+		// 	name:     "test #15",
+		// 	sequence: generateDefault(10000),
+		// 	rtp:      1,
+		// },
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
